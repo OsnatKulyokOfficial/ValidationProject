@@ -21,8 +21,12 @@ const App = () => {
     console.log(amount, paymentNum, description);
 
     const formData = new FormData();
-    formData.append(fullName, email, phone, amount, paymentNum, description);
-    // ... other formData appends ...
+    formData.append("fullName", fullName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("amount", amount);
+    formData.append("paymentNum", paymentNum);
+    formData.append("description", description);
 
     // Log the request payload
     const payload = {};

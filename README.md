@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+🏠 HOME TEST ⚔
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+About this project
+Assignment for a qa position 
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Part one:
+Create a single page form that will include the next fields:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    	Full name 
 
-### `npm test`
+    	Email
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    	Phone number
 
-### `npm run build`
+    	Mount to pay
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    	Payment description
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    	Payment number
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+     Submit button to collect all the user’s details.
 
-### `npm run eject`
+![image](https://github.com/OsnatKulyokOfficial/ValidationProject/assets/129261751/2680f693-592f-4619-9501-da875635f564)
+ 
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+By clicking the "Payment" button, an API call must be made from the client side to create a payment form (attached file Postman containing the reading, the file must be imported into Postman and thus the reading can be viewed)
+The answer to the callback will be a link to the payment form, the payment form must be displayed in the iframe under the form. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Part two: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Carry out UI tests for the interface you created, specify what the necessary validations are.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Summary of the validations performed in the PaymentForm component:
 
-### Making a Progressive Web App
+	Full Name Validation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    o	Field is required.
 
-### Advanced Configuration
+    o	Name should not contain numbers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+	Phone Validation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    o	Field is required.
 
-### `npm run build` fails to minify
+    o	Should contain numbers only.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    o	Should have at least 9 digits.
+
+    o	Should not exceed 10 digits.
+
+
+	Email Validation:
+
+    o	Field is required.
+    
+    o	Should be in a valid email format.
+
+
+	Payment Number Validation:
+
+    o	Field is required.
+
+    o	Should be a positive number.
+
+
+
+	Amount Validation:
+
+    o	Field is required.
+
+    o	Should be a positive number.
+
+
+
+	Description Validation:
+
+    o	Field is required.
+    
+    o	Should be a positive number.
+
+
+
+If any of the validations fail, an error message is displayed next to the corresponding input field.
+These validations ensure that the user enters valid and complete information before submitting the form.
+
+
+
+
+
+
+
+
+
+
+The screen before clicking the button:
+
+ ![image](https://github.com/OsnatKulyokOfficial/ValidationProject/assets/129261751/808292bf-e97f-4296-9563-0fe0c327e044)
+
+
+
+
+
+
+
+The screen after clicking the button:
+
+
+ ![image](https://github.com/OsnatKulyokOfficial/ValidationProject/assets/129261751/808292bf-e97f-4296-9563-0fe0c327e044)
+ 
+ ![image](https://github.com/OsnatKulyokOfficial/ValidationProject/assets/129261751/72b7c2c0-b1e4-4fcf-80fb-317e37c51148)
+
+ 
+

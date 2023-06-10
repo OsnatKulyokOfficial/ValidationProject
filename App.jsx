@@ -27,6 +27,7 @@ const App = () => {
     formData.append("amount", amount);
     formData.append("paymentNum", paymentNum);
     formData.append("description", description);
+    console.log(amount, paymentNum, description, fullName, phone, email);
 
     // Log the request payload
     const payload = {};
@@ -42,14 +43,13 @@ const App = () => {
       {
         method: "POST",
         body: formData,
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "multipart/form-data",
           "Access-Control-Allow-Origin": "*",
         },
       }
     )
-      // .then((response) => response.json())
+      .then((response) => response.json())
       .then((data) => {
         console.log("Payment form creation response:", data);
         if (data.formUrl) {

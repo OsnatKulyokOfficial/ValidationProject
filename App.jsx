@@ -4,11 +4,7 @@ import logo from "./images/logo.jpg";
 import "./App.css";
 
 const App = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [paymentNum, setPaymentNum] = useState("");
-  const [description, setDescription] = useState("");
-  const [formUrl, setFormUrl] = useState("");
+  const [setFormUrl] = useState("");
 
   const handlePaymentFormSubmit = (
     amount,
@@ -18,21 +14,27 @@ const App = () => {
     phone,
     email
   ) => {
-    setAmount(amount);
-    setPaymentNum(paymentNum);
-    setDescription(description);
-    setSubmitted(true);
     console.log(amount, paymentNum, description);
 
+    // The variable add by the postman order
     const formData = new FormData();
     formData.append("pageCode", "e19e0b687744");
     formData.append("userId", "52e95954cd5c1311");
-    formData.append("sum", amount);
-    formData.append("paymentNum", "2");
-    formData.append("description", "56");
-    formData.append("pageField[fullName]", "vjhd");
-    formData.append("pageField[phone]", "16515");
-    formData.append("pageField[email]", "example@example.");
+    formData.append("amount", amount);
+    formData.append("paymentNum", paymentNum);
+    formData.append("description", description);
+    formData.append("fullName", fullName);
+    formData.append("phone", phone);
+    formData.append("email", email);
+
+    console.log(amount, paymentNum, description, fullName, phone, email);
+    console.log("FormData at the very begining", FormData);
+
+    // Log the request payload
+    formData.forEach((value, key) => {
+      formData[key] = value;
+    });
+    console.log("formdata:", formData);
 
     // Make the API call to create the payment form
     fetch(
@@ -42,7 +44,7 @@ const App = () => {
         body: formData,
         mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "multipart/form-data",
           "Access-Control-Allow-Origin": "*",
         },
       }
@@ -59,7 +61,7 @@ const App = () => {
       .catch((error) => {
         console.error("Failed to create payment form:", error);
       });
-  };
+  }; // Closing brace for handlePaymentFormSubmit function
 
   return (
     <div>

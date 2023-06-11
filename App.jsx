@@ -20,14 +20,19 @@ const App = () => {
   ) => {
     console.log(amount, paymentNum, description);
 
+    // The variable add by the postman order
     const formData = new FormData();
-    formData.append("fullName", fullName);
-    formData.append("email", email);
-    formData.append("phone", phone);
+    formData.append("pageCode", "e19e0b687744");
+    formData.append("userId", "52e95954cd5c1311");
     formData.append("amount", amount);
     formData.append("paymentNum", paymentNum);
     formData.append("description", description);
+    formData.append("fullName", fullName);
+    formData.append("phone", phone);
+    formData.append("email", email);
+
     console.log(amount, paymentNum, description, fullName, phone, email);
+    console.log("FormData at the very begining", FormData);
 
     // Log the request payload
     const payload = {};
@@ -42,7 +47,8 @@ const App = () => {
       "https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess",
       {
         method: "POST",
-        body: formData,
+        body: payload,
+        mode: "no-cors",
         headers: {
           "Content-Type": "multipart/form-data",
           "Access-Control-Allow-Origin": "*",

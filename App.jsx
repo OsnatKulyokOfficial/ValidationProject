@@ -4,11 +4,7 @@ import logo from "./images/logo.jpg";
 import "./App.css";
 
 const App = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [paymentNum, setPaymentNum] = useState("");
-  const [description, setDescription] = useState("");
-  const [formUrl, setFormUrl] = useState("");
+  const [setFormUrl] = useState("");
 
   const handlePaymentFormSubmit = (
     amount,
@@ -35,11 +31,9 @@ const App = () => {
     console.log("FormData at the very begining", FormData);
 
     // Log the request payload
-    const payload = {};
     formData.forEach((value, key) => {
-      payload[key] = value;
+      formData[key] = value;
     });
-    console.log("Request Payload:", payload);
     console.log("formdata:", formData);
 
     // Make the API call to create the payment form
@@ -47,7 +41,7 @@ const App = () => {
       "https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess",
       {
         method: "POST",
-        body: payload,
+        body: formData,
         mode: "no-cors",
         headers: {
           "Content-Type": "multipart/form-data",
@@ -67,11 +61,6 @@ const App = () => {
       .catch((error) => {
         console.error("Failed to create payment form:", error);
       });
-
-    setAmount(amount);
-    setPaymentNum(paymentNum);
-    setDescription(description);
-    setSubmitted(true);
   }; // Closing brace for handlePaymentFormSubmit function
 
   return (
